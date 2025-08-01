@@ -252,8 +252,9 @@ async function POST(request, response, HTTP) {
 		}
 
 		case "/eval": {
-			return eval(decodeURIComponent(request.headers['eval']))
-
+			// Removed the use of eval for security reasons
+			response.writeHead(400, { 'Content-Type': 'text/plain' });
+			response.end('Eval endpoint is disabled for security reasons.');
 			break;
 		}
 
