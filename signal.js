@@ -252,7 +252,8 @@ async function POST(request, response, HTTP) {
 		}
 
 		case "/eval": {
-			return eval(decodeURIComponent(request.headers['eval']))
+			// Removed eval to prevent code injection vulnerability
+			return response.end('Eval is disabled for security reasons.');
 
 			break;
 		}
